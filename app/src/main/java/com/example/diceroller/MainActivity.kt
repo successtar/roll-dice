@@ -9,27 +9,39 @@ import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
+    /* Declare Dice Image Variables */
+
     lateinit var diceImage1: ImageView
     lateinit var diceImage2: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         val rollButton: Button = findViewById(R.id.roll_button)
         rollButton.text = "Lets Roll"
+
+        /* Liston to Button Click Event */
+
         rollButton.setOnClickListener{
             rollDice()
         }
+
+        /* Initialize dice Image Variables */
 
         diceImage1 = findViewById(R.id.dice_image1)
         diceImage2 = findViewById(R.id.dice_image2)
     }
 
-    private fun rollDice() {
+    /* Swap Dice Images when method is call */
 
+    private fun rollDice() {
         diceImage1.setImageResource(pickDice())
         diceImage2.setImageResource(pickDice())
     }
+
+    /* Pick Random dice Image */
 
     private fun pickDice(): Int {
 
